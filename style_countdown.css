@@ -1,0 +1,189 @@
+body {
+	font-family: Helvetica, Arial;
+	background-color: #eee;
+	padding: .5em .2em 0 1em;
+}
+#wrapper {
+margin: auto;
+width: 35%;
+}
+table {
+	border-spacing: 0px;
+	margin: .5em 0 .5em 0;
+}
+.letters_table {
+		font-size: 2em;
+		text-transform: uppercase;
+	}
+td {
+	/*display: inline;*/
+	background-color: #00416d;
+	color: #fff;
+	padding: .25em;
+	border: 2px solid #336d88;
+}
+/* All forms are hidden by default until they are needed */
+form {
+	display: none;
+}
+#numbersgame table {
+	font-family: Courier New;
+}
+#sn_table {
+	font-size: 1.8em;
+}
+#target_num {
+	display: none;
+	padding-left: .2em;
+	margin: 0px;
+	font-family: Courier New;
+	font-size: 3em;
+	padding-top: .25em;
+}
+#bignumbers, #smallnumbers {
+	cursor: pointer;
+	border: 2px solid #336d88;
+	width: max-content;
+}
+#bignumbers td, #smallnumbers td {
+	padding: .4em .6em .4em .4em;
+	font-weight: bold;
+}
+.face_down span {
+	visibility: hidden;
+}
+.face_up {
+	cursor: auto;
+}
+.face_up span {
+	visibility: visible;
+}
+.hideltrs span {
+	visibility: hidden;
+}
+.scorebox {
+	display: none;
+}
+#gameplay { clear: both;
+	float: left;
+	width: 45%;
+	margin-top: 1em;
+ }
+
+#gameinfo {
+	width: 35%;
+	margin-top: 1em;
+	margin-right: 4em;
+
+}
+#footer {
+	padding-top: 1em;
+	clear: both;
+	text-align: center;
+}
+#headerbox h3 {
+	padding-top: 2.5em;
+	padding-bottom: 0px;
+	margin-bottom: 0px;
+}
+
+#timer {
+	visibility: hidden;
+	font-size: 4em;
+	color: #00416d;
+	display: block;
+}
+.boldtimer {
+	font-weight: bold;
+	color: #8b0000 !important;
+}
+#result_words {
+	display: none;
+}
+#logo {
+	margin-right: 1em;
+}
+#logobox {
+	margin-top: .5em;
+	padding-top: 0px;
+}
+h3 {
+	padding-top: 1em;
+}
+#explanation {
+	padding: .5em 0 0 1em;
+	width: 75%;
+}
+#statsbox {
+	/*float: left;
+	width: 45%;
+	margin-top: 2em;*/
+	visibility: hidden;
+	font-size: 1.5em;
+}
+#points_box {
+	margin-bottom: 1em;
+}
+#gameinfo {
+	float: right;
+	width: 40%;
+}
+#uw_len {
+	font-weight: bold;
+}
+.uw_len_invalid {
+	color: #8B0000;
+}
+#start_game_button {
+	height: 60px;
+	width: 160px;
+	display: block;
+	font-size: 1.2em;
+	font-weight: bold;
+	border: 4px solid #336d88;
+	background-color: #00416d;
+	color: #eee;
+	margin-left: 3.5em;
+	margin-top: 1em;
+}
+#whatround {
+	width: 25%;
+	padding-top: 1em;
+	font-size: 2em;
+}
+#letters_game, #numbersgame, #conundrum_game, #numbersgame_answer {
+	display: none;
+}
+#round_box {
+	display: none;
+	visibility: hidden;
+}
+#nextround {
+	display: none;
+	border: 2px solid #336d88;
+	background-color: #00416d;
+	color: #eee;
+	padding: .4em .85em .4em .85em;
+}
+#conundrum_answer_length {
+	font-weight: bold;
+	margin-left: .5em;
+}
+.cal_nogood {
+	color: #8B0000;
+}
+.cal_good {
+	color: #37920d;
+}
+#conundrum_game form {
+	font-size: 1.3em;
+}
+.letterbutton {
+	margin-left: .3em;
+}
+img.spinner {
+	vertical-align: middle;
+}
+#con_table {
+	display: none;
+}
