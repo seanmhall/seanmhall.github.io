@@ -9,7 +9,7 @@ const LETTER_STACK_SIZE = 2500;
 
 //The directory that contains the lists of words 
 //Source for the list of words: https://github.com/dwyl/english-words
-const WORD_LIST_FOLDER = '/countdown/wordlists/';
+const WORD_LIST_FOLDER = 'wordlists/';
 
 //Controls where found word URLs point to
 const URL_LOOKUP_PREFIX = 'https://duckduckgo.com/?t=ffsb&q=define:';
