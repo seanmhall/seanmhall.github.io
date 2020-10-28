@@ -38,6 +38,9 @@ function new_conundrum() {
 
 	let conundrum_found = false;
 	chosenword = '';
+	//Step 1: We randomly choose a word that will be split into either a 4/5 or 3/6 subword anagram; this choice is also random
+	//If there are no 4/5 anagrams for the given word, try 3/6 and vice versa
+	//If *still* no suitable anagram candidates are found, randomly select another word and start process over
 	while (conundrum_found === false) {
 		chosenword = nines[Math.floor(Math.random() * nines.length)];
 		let fourfive_subwords = (Math.random() < 0.5); //Boolean that determines 4-5 vs 3/6 anagrams
