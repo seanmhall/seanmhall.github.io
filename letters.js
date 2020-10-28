@@ -24,7 +24,7 @@ function check_for_solutions(letters) {
         for (let i = 0; i < current.length; i++) {
             let w = current[i];
             let comma = (i === current.length-1) ? '' : ', ';
-            outhtml += '<a href="' + URL_LOOKUP_PREFIX + w + '">' + current[i] + '</a>'+comma;
+            outhtml += '<a href="' + URL_LOOKUP_PREFIX + w + '"  target="_blank">' + current[i] + '</a>'+comma;
         }
         outhtml += '</li>';
     }
@@ -111,7 +111,7 @@ function random_letter(isVowel = false) {
         //Hide letter selection buttons
         $("#consonant_button").css("display", "none");
         $("#vowel_button").css("display", "none");
-        alert("Game will now begin!\nYou have "+NUMBERS_GAME_TIME+" seconds.");
+        alert("You have "+NUMBERS_GAME_TIME+" seconds to make the longest word you can with these letters.\nGood luck!");
         //Put time on the board
         $("#timer").css("visibility", "visible");
         $("#timer").html(String(LETTERS_GAME_TIME));
