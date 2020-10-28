@@ -10,6 +10,7 @@ const LETTER_STACK_SIZE = 2500;
 //The directory that contains the lists of words 
 //Source for the list of words: https://github.com/dwyl/english-words
 const WORD_LIST_FOLDER = 'wordlists/';
+const WORD_POOL_FILE = "conundrum_word_pool.txt";
 
 //Controls where found word URLs point to
 const URL_LOOKUP_PREFIX = 'https://duckduckgo.com/?t=ffsb&q=define:';
@@ -103,13 +104,20 @@ function start_new_game() {
     //These two are global on purpose
     total_points = 0; 
     round = 1;
-    $("#round_counter").html("1");
+    $("#round_counter").html(String(round));
+    document.getElementById('timer').className = '';
+    $("#statsbox").css("visibility", "hidden");
     $("#explanation").html(LETTERS_ROUND_RULES);
+    $("#explanation").css("visibility", "visible");
+    $("#roundtype").html("Letters");
     //MOVE THE LINE BELOW--should be shown after Round 1 has ended
     $("#round_box").css("visibility", "visible");
     $("#round_box").css("display", "inline");
     $("#wrapper").css("width", "100%");
     $("#start_game_button").css("display", "none");
+    $("#ruleslink").css("display", "none")
+    //If a game is finished and user wants to play again
+    $("#conundrum_game").css("display", "none");
     //TEMP DEBUG!!!
     new_letters_round();
     //new_conundrum();
