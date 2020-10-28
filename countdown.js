@@ -1,4 +1,4 @@
-//COUNTDOWN HTML GAME - Started 9-3-2020 -- S. Matt Mangels
+//COUNTDOWN HTML GAME - Started 9-3-2020 -- Sean Matthew Mangels Hall
 
 //---GAME OPTION VARIABLES---
 //Letter frequency is weighted according to Dictionary frequency (1) by default
@@ -20,19 +20,14 @@ const NUMBERS_GAME_TIME = 35;
 const CONUNDRUM_GAME_TIME = 30;
 
 //Explanations of the rules for each round
-const LETTERS_ROUND_RULES = 'Select at least 3 vowels and at least 4 consonants, then find the longest word* you can make from the chosen letters.<br /><small>*Excludes proper nouns (place names, people&rsquo;s names, brands, etc.).</small>';
-const NUMBERS_ROUND_RULES = '<strong>Select 6 numbers</strong> using any combination of numbers from the Top (25, 50, 75, 100) or the Bottom (1-10).';
+const LETTERS_ROUND_RULES = 'Select 9 letters: at least 3 vowels and at least 4 consonants, then find the longest word you can make from the chosen letters.';
+const NUMBERS_ROUND_RULES = '<strong>Select 6 numbers</strong> using any combination of numbers from the Top (25, 50, 75, 100) or the Bottom (1-10). Use simple arithmetic (<strong>+, &ndash;, &times;, &#247;</strong>) to reach the target number.';
 const CONUNDRUM_ROUND_RULES = 'The letters below are an anagram of which word?';
 
 function getRndInteger(min, max) {
     return Math.floor(Math.random() * (max - min)) + min;
 }
 
-/*
-var seven_letter_words = [];
-var eight_letter_words = [];
-var nine_letter_words = [];
-*/
 function get_word_file(n) {
     return $.get(WORD_LIST_FOLDER + String(n) + '_words.txt');
 }
