@@ -1,21 +1,22 @@
 
+//Takes 9 letter string as input and returns Object containing three arrays
+//These arrays will contain all 7, 8, and 9 letter words that can be formed from the given letters
 function check_for_solutions(letters) {
     var outhtml = '';
-    //let nineperms = permutations(letters);
-    let perms = permute(letters);
-    let p_set = new Set(perms);
     let foundwords = {};
-    //let eightperms = permutations(letters, 8);
-    //let sevenperms = permutations(letters, 7);
+    //First, get all the possible permutations of our input string
+    let perms = permute(letters);
+    let nineperms = new Set(perms);
     let eightperms = new Set(perms.map(v => v.slice(0, -1)));
     let sevenperms = new Set(perms.map(v => v.slice(0, -2)));
-    let nine_isect = new Set([...nine_words_dict].filter(x => p_set.has(x)));
+    //We compare these Sets of permutations with the Sets of words from the dictionary
+    let nine_isect = new Set([...nine_words_dict].filter(x => nineperms.has(x)));
     foundwords["Nine"] = Array.from(nine_isect);
     let eight_isect = new Set([...eight_words_dict].filter(x => eightperms.has(x)));
     foundwords["Eight"] = Array.from(eight_isect);
     let seven_isect = new Set([...seven_words_dict].filter(x => sevenperms.has(x)));
     foundwords["Seven"] = Array.from(seven_isect);
-
+    //Then it's a matter of formatting...
     for (let wordlength in foundwords) {
         let current = foundwords[wordlength];
         if (current.length < 1) continue;
