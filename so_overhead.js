@@ -27,25 +27,9 @@ function repeatStr(string, times) {
     return repeatedString;
 }
 
-/* OLD FUNCTION
-function permute(string) {
-    if (string.length < 2) return string; // This is our break condition
-
-    var permutations = []; // This array will hold our permutations
-    for (var i = 0; i < string.length; i++) {
-        var char = string[i];
-
-        // Cause we don't want any duplicates:
-        if (string.indexOf(char) != i) // if char was used already
-            continue; // skip it this time
-
-        var remainingString = string.slice(0, i) + string.slice(i + 1, string.length); //Note: you can concat Strings via '+' in JS
-
-        for (var subPermutation of permute(remainingString))
-            permutations.push(char + subPermutation);
-    }
-    return permutations;
-}*/
+//Based on an answer from Stack Overflow
+//I modified it to accept an additional argument
+//So now you can get, say, all 7-letter permutations of a 9-letter string
 function permute(string, charnum) {
     charnum = charnum || 1;
         if (string.length === charnum) return string; // This is our break condition
