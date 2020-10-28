@@ -1,6 +1,5 @@
 //JavaScript Anagram Finder - 10-23-2020
 
-const WORD_POOL_FILE = "conundrum_word_pool.txt";
 sixes = []; threes = []; fours = []; fives = []; nines = [];
 
 //First argument must be 9 letters--MANDATORY
@@ -66,45 +65,3 @@ function find_anagrams(chars, fourfiveanagrams, SHOW_HYPHEN) {
     //Turn the array into a Set to remove duplicates, then turn it back into an array
     return Array.from(new Set(word_pairs));
 }
-//Init function
-
-// $(function() {
-//     const t0 = performance.now();
-//     $.get(WORD_POOL_FILE).done(function(data) {
-//         //Global on purpose
-//         word_list = data.split(/[\r\n]+/);
-//         for (word of word_list) {
-//             //word = word.replace(/\s/gi, '');
-//             switch(word.length) {
-//                 case 3:
-//                     threes.push(word);
-//                     break;
-//                 case 4:
-//                     fours.push(word);
-//                     break;
-//                 case 5:
-//                     fives.push(word);
-//                     break;
-//                 case 6:
-//                     sixes.push(word);
-//                     break;
-//                 case 9:
-//                     nines.push(word);
-//                     break;
-//                 default:
-//                     break;
-//             }
-//         }
-//         let grams = find_anagrams('modulated', true, true);
-//         /*let outhtml = "<ul>";
-//         for (gram of grams) {
-//             gram = gram.toUpperCase();
-//             outhtml += '<li>'+gram+'</li>';
-//         }
-//         outhtml+= '</ul>';*/
-//         random_gram = grams[Math.floor(Math.random() * grams.length)];
-//         $("#main").html(`<h1>${random_gram}</h1>`);
-//         t1 = performance.now();
-//         console.log(`Script took ${t1 - t0} milliseconds.`);
-//     });
-// });
