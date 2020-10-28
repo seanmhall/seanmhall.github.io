@@ -3,11 +3,12 @@ function new_conundrum() {
 	$("#roundtype").html("Conundrum");
 	$("#explanation").html(CONUNDRUM_ROUND_RULES);
 	$("#timer").css("visibility", "visible");
+	$("#conundrum_game form").css("display", "block");
 	$("#timer").html(String(CONUNDRUM_GAME_TIME));
 	CGT = CONUNDRUM_GAME_TIME;
 	var grams;
 	//Find a word and create an anagram of it
-	$.get(WORD_POOL_FILE).done(function(data) {
+	$.get(WORD_LIST_FOLDER+WORD_POOL_FILE).done(function(data) {
 	//Assemble our arrays 3,4,5,6 and 9 letter words
 	//This group of 9 letter words is smaller than the rather expansive list used for the letters rounds
 	//The pool of 9 letter words for conundrums is almost 8,000 words.
@@ -71,7 +72,11 @@ function cgt_tick() {
 		let c_answer = $("#c_answer").val();
 		let c_score = (chosenword == c_answer) ? 10 : 0;
 		total_points += c_score;
-		alert("Time's up!\nYou scored "+String(c_score)+" points.");
+		let amsg = "Time's up!\n";
+		amsg += (c_score > 0) ? "'"+c_answer+"' is correct! You scored 10 points.\n" : "You scored 0 points.\n";
+		amsg += "\nYour final score for this game is "+String(total_points)+".";
+		//alert("Time's up!\nYou scored "+String(c_score)+" points.");
+		alert(amsg);
 		$("#points_counter").html(total_points);
 		//Now show the answer
 		let tmphtml = '';
@@ -84,6 +89,11 @@ function cgt_tick() {
 			tmphtml += '<td>'+cwltrs[i]+'</td>';
 		}*/
 		$("#con_letters").html(tmphtml);
+		$("#start_game_button").html("New Game");
+		$("#start_game_button").css("display", "block");
+		$("#timer").css("visibility", "hidden");
+		$("#explanation").css("visibility", "hidden");
+		$("#conundrum_game form").css("display", "none");
 	}
 }
 
