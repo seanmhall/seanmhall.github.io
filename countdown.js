@@ -17,7 +17,7 @@ const URL_LOOKUP_PREFIX = 'https://duckduckgo.com/?t=ffsb&q=define:';
 //These control how long each round lasts (in seconds)
 const LETTERS_GAME_TIME = 35;
 const NUMBERS_GAME_TIME = 35;
-const CONUNDRUM_GAME_TIME = 30;
+const CONUNDRUM_GAME_TIME = 35;
 
 //Explanations of the rules for each round
 const LETTERS_ROUND_RULES = 'Select 9 letters: at least 3 vowels and at least 4 consonants, then find the longest word you can make from the chosen letters.';
@@ -180,3 +180,7 @@ $(function() {
         nine_words_dict = new Set(nine_words_dict_arr);
     });
 });
+// Enable navigation prompt
+window.onbeforeunload = function() {
+    return true;
+};
