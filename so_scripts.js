@@ -28,8 +28,14 @@ function repeatStr(string, times) {
 }
 
 //Based on an answer from Stack Overflow
-//I modified it to accept an additional argument
+//I modified it to accept an additional argument and also removed some code that removed duplicates
+//The original function would actually therefore return Combinations and not Permutations, strictly speaking
 //So now you can get, say, all 7-letter permutations of a 9-letter string
+//BUT! If you want to do this don't call "permute", call "Permutations"
+//Wrapper function is necessary because apparently JavaScript doesn't let you pass variables by reference
+//Performance tests indicated that creating one array of 9-letter permutations and then trimming it is faster than calling Permutations()
+//I left this in here anyway in case anyone needs such a function
+
 function permute(string, charnum) {
     charnum = charnum || 1;
         if (string.length === charnum) return string; // This is our break condition
@@ -37,11 +43,7 @@ function permute(string, charnum) {
         var permutations = []; // This array will hold our permutations
 
       for (var i = 0; i < string.length; i++) {
-            var char = string[i];
-            // Cause we don't want any duplicates:
-            /*if (string.indexOf(char) != i) {
-            continue;
-            }*/
+        var char = string[i];
         var remainingString = string.slice(0, i) + string.slice(i + 1, string.length);
         //console.log('Str: '+string+', Remaining: '+remainingString);
        for (var subPermutation of permute(remainingString)) {
@@ -52,7 +54,7 @@ function permute(string, charnum) {
     }
 //Wrapper function and string_sort are my own functions
 
-function permutations(istr, numberOfChars) {
+function Permutations(istr, numberOfChars) {
     numberOfChars = numberOfChars || null;
     let array_to_return;
         if (numberOfChars == null) {
