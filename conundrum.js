@@ -101,7 +101,7 @@ function cgt_tick() {
 }
 
 function con_answer_verify() {
-	let c_answer = $("#c_answer").val();
+	let c_answer = $("#c_answer").val().toLowerCase();
 	let cwltrs = chosenword.split('');
 	let ultrs = c_answer.split('');
 	cwltrs.sort();
