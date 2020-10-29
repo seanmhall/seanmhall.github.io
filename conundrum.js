@@ -72,7 +72,7 @@ function cgt_tick() {
 	//Let player know when time has run out and stop the clock
 	if (CGT < 1) {
 		window.clearInterval(ntimer);
-		let c_answer = $("#c_answer").val();
+		let c_answer = $("#c_answer").val().toLowerCase();
 		let c_score = (chosenword == c_answer) ? 10 : 0;
 		total_points += c_score;
 		let amsg = "Time's up!\n";
