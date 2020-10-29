@@ -127,7 +127,7 @@ occurences_of = function (needle, haystack) {return haystack.split(needle).lengt
 isvalid = true;
 //Returns True or False
 function valid_letters_input() {
-    let user_ltrs_str = $("#user_word").val();
+    let user_ltrs_str = $("#user_word").val().toLowerCase();
     let user_ltrs = user_ltrs_str.split('');
     let uw_len_color = "#37920d";
     isvalid = true;
