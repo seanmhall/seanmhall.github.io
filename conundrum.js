@@ -86,11 +86,7 @@ function cgt_tick() {
 		for (var cwletter of chosenword.split('')) {
 			tmphtml += `<td>${cwletter}</td>`;
 		}
-		/*let cwltrs = chosenword.split('');
-		let tmphtml = '';
-		for (let i=0;i<9;i++) {
-			tmphtml += '<td>'+cwltrs[i]+'</td>';
-		}*/
+
 		$("#con_letters").html(tmphtml);
 		$("#start_game_button").html("New Game");
 		$("#start_game_button").css("display", "block");
