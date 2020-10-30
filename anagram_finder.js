@@ -2,10 +2,10 @@
 
 sixes = []; threes = []; fours = []; fives = []; nines = [];
 
-//First argument must be 9 letters--MANDATORY
+//First argument must be 9 letters
 //Second arg determines whether it returns 4/5 or 3/6 subword anagrams
 //Set fourfives to false to get 3/6 anagrams
-//Last arg is for DEBUG ONLY! Shows hyphen betweens subwords for readability
+//Optional final arg is for DEBUG ONLY! Shows hyphen betweens subwords for readability
 function find_anagrams(chars, fourfiveanagrams, SHOW_HYPHEN) {
     SHOW_HYPHEN = SHOW_HYPHEN || false;
     if (chars.length !== 9) { 
