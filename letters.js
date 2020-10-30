@@ -81,10 +81,8 @@ function lgt_tick() {
         $("#statsbox").css("visibility", "visible");
         $("#points_counter").html(total_points);
         $("#nextround").css("display", "block");
-        //const t0 = performance.now();
+        //Finally, show the user what possible 7+ words, if any, can be formed from the letters
         check_for_solutions(chosen_letters);
-        //const t1 = performance.now();
-        //console.log(`check_for_solutions() took ${t1 - t0} milliseconds.`);
 }
 }
 
@@ -100,7 +98,6 @@ function random_letter(isVowel = false) {
         var letter = shuffled_consonants[Math.floor(Math.random() * shuffled_consonants.length)];
     }
     letterbox.getElementsByTagName('tr')[0].innerHTML += '<td>' + letter + '</td>';
-    //document.getElementById("chosen_ltrs").innerHTML += letter;
     chosen_letters += letter;
 
     if (isVowel) { vowel_count += 1; }
@@ -140,9 +137,7 @@ function valid_letters_input() {
             isvalid = false;
             break;
         }
-        //else { uw_len_color = "#000000"; }
     }
-    //console.log(uw_len_color);
     $("#uw_len").css("color", uw_len_color);
 }
 
