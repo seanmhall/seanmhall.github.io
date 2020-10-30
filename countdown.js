@@ -80,9 +80,6 @@ function init() {
     //Global on purpose
     shuffled_vowels = shuffle(vowel_stack);
     shuffled_consonants = shuffle(consonant_stack);
-    //$("#letterbox").innerHTML = vowel_stack;
-    //console.log(vowel_stack.length);
-    //chosen_letters.length = 0;
     populate_numbers();
     chosen_nums = []; //Global on purpose
     let uw = document.getElementById("user_word");
@@ -91,7 +88,7 @@ function init() {
         valid_letters_input();
     }
     document.getElementById("c_answer").oninput = function() {
-        con_answer_verify(); //RENAME THIS
+        con_answer_verify();
     }
     //$("#whatround").css("display", "none");
 }
@@ -113,9 +110,7 @@ function start_new_game() {
     $("#ruleslink").css("display", "none")
     //If a game is finished and user wants to play again
     $("#conundrum_game").css("display", "none");
-    //TEMP DEBUG!!!
     new_letters_round();
-    //new_conundrum();
 
 }
 
@@ -138,7 +133,6 @@ function next_round() {
         $("#roundtype").html("Numbers");
         $("#letters_game").css("display", "none");
         $("#selected_nums").html("");
-        //$("#selected_nums").html(repeatStr("<td>&nbsp;</td>", 6));
         $("#bignumbers").html("<tbody><tr></tr></tbody>");
         $("#smallnumbers").html("<tbody></tbody>");
         $("#numbersgame").css("display", "block");
