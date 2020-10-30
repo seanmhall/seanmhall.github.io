@@ -3,6 +3,12 @@
 This is my attempt at creating a way to play Countdown on the web. I've never made a game before so I thought this would be a fun project. I'm sure this is something that's been done many times before but I deliberately avoided looking at any existing ones before making this.
 
 ## LETTERS ROUND
+### Letter Selection
+
+The letter frequencies come from Wikipedia (https://en.wikipedia.org/wiki/Letter_frequency). The game uses the Dictionary frequency by default but the Text frequency table is included too but not recommended. For example, the text has a high percentage of Ws, probably due to whatever corpus was used containing urls (www). 
+
+### Scoring
+
 The scoring for the Letters round goes by the Honor System for words of 6 letters or less. Words 7-9 letters are checked against a list of words that came from here: https://github.com/dwyl/english-words
 If you type a letter that isn't one of the 9 selected letters for that round, or use a selected letter more times than it appears the Letter Counter next to the input box will turn red. Any invalid input will automatically score 0 points.
 
