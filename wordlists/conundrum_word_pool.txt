@@ -16121,6 +16121,7 @@ collar
 collie
 colons
 colony
+color
 colour
 column
 combat
@@ -17019,6 +17020,7 @@ faults
 faulty
 faunal
 faunas
+favor
 favour
 fawned
 faxing
