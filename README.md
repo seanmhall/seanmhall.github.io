@@ -3,6 +3,7 @@
 This is my attempt at creating a way to play Countdown on the web. I've never made a game before so I thought this would be a fun project. I'm sure this is something that's been done many times before but I deliberately avoided looking at any existing ones before making this.
 
 ## LETTERS ROUND
+
 ### Letter Selection
 
 The letter frequencies come from Wikipedia (https://en.wikipedia.org/wiki/Letter_frequency). The game uses the Dictionary frequency by default but the Text frequency table is included too but not recommended. For example, the text has a high percentage of Ws, probably due to whatever corpus was used containing urls (www). 
@@ -16,5 +17,5 @@ If you type a letter that isn't one of the 9 selected letters for that round, or
 The scoring for the Numbers Round for the time being is entirely on the Honor System. There is also no way to check for possible solutions, for now. I'm sure somebody has written an algorithm to solve these already but I would like to do it myself. This feature will maybe appear in a future release.
 
 ## CONUNDRUM
-The letter counter next to the input box will light up red if you have invalid input. The number turning green indicates a *possible* correct answer (spefically, the letters you provided are all the same as the letters in the clue, but the order could still be wrong).
+The letter counter next to the input box will light up red if you have invalid input. The number turning green indicates a *possible* correct answer (spefically, the letters you provided are all the same as the letters in the clue, but the order could still be wrong). The pool of words for conundrums came from http://www.mieliestronk.com/wordlist.html. I needed a separate word list for conundrums that didn't contain a million obscure words that come from the sciences; it would be unrealistically difficult otherwise.
 
