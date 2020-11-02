@@ -45,6 +45,7 @@ function lgt_tick() {
     if (LGT < 1) {
         window.clearInterval(ltimer);
         $("#result_words").css("display", "block");
+        $("#letters_game form").css("display", "none");
         let uword = $("#user_word").val().toLowerCase().replace(' ', '');
         //Contestant receives 18 points if they make a 9 letter word
         //let letterscore = (uword.length == 9) ? 18 : uword.length;
@@ -109,7 +110,8 @@ function random_letter(isVowel = false) {
         //Hide letter selection buttons
         $("#consonant_button").css("display", "none");
         $("#vowel_button").css("display", "none");
-        alert("You have "+NUMBERS_GAME_TIME+" seconds to make the longest word you can with these letters.\nGood luck!");
+        //Decided that less alerts is better but leaving this line in anyway
+        //alert("You have "+NUMBERS_GAME_TIME+" seconds to make the longest word you can with these letters.\nGood luck!");
         //Put time on the board
         $("#timer").css("visibility", "visible");
         $("#timer").html(String(LETTERS_GAME_TIME));
@@ -120,25 +122,25 @@ function random_letter(isVowel = false) {
     }
 }
 
+//Returns the number of needles in the haystack
 occurences_of = function (needle, haystack) {return haystack.split(needle).length - 1;}
 isvalid = true;
 //Returns True or False
 function valid_letters_input() {
     let user_ltrs_str = $("#user_word").val().toLowerCase();
     let user_ltrs = user_ltrs_str.split('');
-    let uw_len_color = "#37920d";
+    let counter_class = "valid_letters";
     isvalid = true;
-    for (let i=0;i<user_ltrs.length;i++) {
-        let current_letter = user_ltrs[i];
+    for (current_letter of user_ltrs) {
         var too_many_letters = (occurences_of(current_letter, user_ltrs_str) > occurences_of(current_letter, chosen_letters));
         let invalid_letter = (chosen_letters.indexOf(current_letter) < 0);
         if (invalid_letter || too_many_letters) {
-            uw_len_color = "#8B0000";
+            counter_class = "invalid_letters";
             isvalid = false;
             break;
         }
     }
-    $("#uw_len").css("color", uw_len_color);
+    document.getElementById("uw_len").className = counter_class;
 }
 
 function new_letters_round() {
