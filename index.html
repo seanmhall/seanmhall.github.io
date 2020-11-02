@@ -14,23 +14,25 @@
 	<script src="conundrum.js"></script>
 </head>
 <body><div id="wrapper">
-	<!--<div id="gameinfo"><div id="points_counter">10</div>
-	<img src="biglogo.jpg" id="logo" alt="COUNTDOWN" />
-<h2 id="whatround">Round <span id="round_counter">1</span></h2></div>-->
 <div id="headerbox">
 	<div id="logobox">
 	<img src="biglogo.jpg" id="logo" alt="COUNTDOWN" height="187" width="310" style="float: left;"/>
-	<!--<p id="explanation">Select at least 3 vowels and at least 4 consonants.</p>-->
 	<div id="round_box"><h3>Round <span id="round_counter">0</span> &mdash; <span id="roundtype">Letters</span></h3>
 	<p id="explanation">Lorem ipsum dolor sit amet.</p></div>
-	<!--Use addition, subtraction, multiplication, or division to get as close to target-->
 </div>
-	<!--<div id="whatround">Round <span id="round_counter">1</span></div>
-	<div id="points_counter">10</div>-->
+
 </div>
 <p id="ruleslink">&nbsp;<br /><a href="https://en.wikipedia.org/wiki/Countdown_(game_show)#Letters_round" target="_blank">Rules &amp; Explanation (Wikipedia)</a><br />
 	</p>
-
+	<form id="difficulty_form">
+		<fieldset><legend>Difficulty:</legend>
+		<input id="easymode" name="diff_level" type="radio" value="easy" checked="checked" />&nbsp;
+		<label for="easymode">Less Hard</label>&nbsp;
+		<input id="hardmode" name="diff_level" type="radio" value="hard" />&nbsp;
+		<label for="hardmode">Hard</label>&nbsp;<br />
+		<small><strong id="rndlngth">45</strong> seconds per round</small>
+		</fieldset>
+		</form>
 	<div id="gameplay">
 		<button id="start_game_button" type="button" onclick="start_new_game()">Start Game</button>
 <!-- 
@@ -42,7 +44,8 @@
 	<table id="letterbox" class="letters_table"><tbody><tr></tr></tbody></table>
 	<form><label for="user_word">Your word:</label>&nbsp;
 		<input type="text" id="user_word" name="user_word" size="9" maxlength="9" />&nbsp;&nbsp;
-		<span id="uw_len">0</span>&nbsp;&nbsp;<button id="end_ltr_round_button" type="button" onclick="end_LGT_timer();">End timer</button></form>
+		<span id="uw_len">0</span>&nbsp;&nbsp;<button id="end_ltr_round_button" type="button" onclick="end_LGT_timer();">End timer</button>
+	</form>
 	<ul id="result_words"><li style='list-style-type: none;'><img class='spinner' src='loading.webp' height='32' width='32' alt='Loading' />&nbsp;&nbsp;Checking for possible solutions...</li></ul>
 </div>
 <!-- 
@@ -58,7 +61,7 @@
 	<form id="numbersgame_answer" class="answer_form">
 		<label for="user_number">Your answer:</label>&nbsp;
 		<input type="text" id="user_number" name="user_number" size="3" maxlength="3" />&nbsp;&nbsp;
-		<button id="end_num_round_button" type="button" onclick="end_NGT_timer();">End timer</button></form>
+		<button id="end_num_round_button" type="button" class="timer_stop" onclick="end_NGT_timer();">End timer</button></form>
 	<p id="numbers_score" class="scorebox">Score: <span></span></p>
 </div>
 <!--
@@ -74,7 +77,7 @@
 <p id="c_timer"></p>
 <form><label for="c_answer">Word:</label>&nbsp;
 	<input type="text" id="c_answer" name="c_answer" size="9" maxlength="9" />&nbsp;<span class="cal_nogood" id="conundrum_answer_length"></span>&nbsp;&nbsp;
-	<button id="end_con_round_button" type="button" onclick="end_CGT_timer();">End timer</button></form>
+	<button id="end_con_round_button" class="timer_stop" type="button" onclick="end_CGT_timer();">End timer</button></form>
 	<p id="conundrum_score" class="scorebox">Score: <span></span></p>
 </div>
 </div>
