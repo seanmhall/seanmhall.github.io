@@ -8,17 +8,22 @@ const USE_DICTIONARY_FREQ = 1;
 const LETTER_STACK_SIZE = 2500;
 
 //The directory that contains the lists of words 
-//Source for the list of words: https://github.com/dwyl/english-words
+//Source for the list of 7, 8, 9 letter words: https://github.com/dwyl/english-words
 const WORD_LIST_FOLDER = 'wordlists/';
-const WORD_POOL_FILE = "conundrum_word_pool.txt";
+//The words for conundrums came from http://www.mieliestronk.com/wordlist.html
+//Given that the 9 letter word list contains many obscure words that come from the sciences I felt it would be unrealistically difficult to use them for conundrums
+const WORD_POOL_FILE = "conundrum_word_pool.txt"; 
 
 //Controls where found word URLs point to
 const URL_LOOKUP_PREFIX = 'https://duckduckgo.com/?t=ffsb&q=define:';
 //These control how long each round lasts (in seconds)
-const LETTERS_GAME_TIME = 35;
-const NUMBERS_GAME_TIME = 35;
-const CONUNDRUM_GAME_TIME = 35;
-
+var easy_mode = true;
+const EASY_GAME_TIME = 45;
+const HARD_GAME_TIME = 30;
+//If you want different lengths for different rounds you can always change these to hard-coded values
+LETTERS_GAME_TIME = (easy_mode) ? EASY_GAME_TIME : HARD_GAME_TIME;
+NUMBERS_GAME_TIME = (easy_mode) ? EASY_GAME_TIME : HARD_GAME_TIME;
+CONUNDRUM_GAME_TIME = (easy_mode) ? EASY_GAME_TIME : HARD_GAME_TIME;
 //Explanations of the rules for each round
 const LETTERS_ROUND_RULES = 'Select 9 letters: at least 3 vowels and at least 4 consonants, then find the longest word you can make from the chosen letters.';
 const NUMBERS_ROUND_RULES = '<strong>Select 6 numbers</strong> using any combination of numbers from the Top (25, 50, 75, 100) or the Bottom (1-10). Use simple arithmetic (<strong>+, &ndash;, &times;, &#247;</strong>) to reach the target number.';
@@ -91,11 +96,26 @@ function init() {
         con_answer_verify();
     }
     //$("#whatround").css("display", "none");
+    let difflevel = $('input[type=radio]');
+    if ($("#hardmode").is(':checked')) {
+    $("#rndlngth").html(String(HARD_GAME_TIME));
+    }
+    difflevel.change(function() {
+        easy_mode = ($("#easymode").is(':checked')) ? true : false;
+        let lenstr = (easy_mode) ? EASY_GAME_TIME : HARD_GAME_TIME;
+        $("#rndlngth").html(String(lenstr));
+    });
 }
 function start_new_game() {
-    //These two are global on purpose
+    //(Re)set these variable
     total_points = 0; 
     round = 1;
+    //Apply the difficuly settings the user has selected
+    LETTERS_GAME_TIME = (easy_mode) ? EASY_GAME_TIME : HARD_GAME_TIME;
+    NUMBERS_GAME_TIME = (easy_mode) ? EASY_GAME_TIME : HARD_GAME_TIME;
+    CONUNDRUM_GAME_TIME = (easy_mode) ? EASY_GAME_TIME : HARD_GAME_TIME;
+    //Hide the difficulty selector
+    $("#difficulty_form").css("display", "none");
     $("#round_counter").html(String(round));
     document.getElementById('timer').className = '';
     $("#statsbox").css("visibility", "hidden");
