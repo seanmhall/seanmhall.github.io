@@ -1,6 +1,6 @@
 # CountdownJS
 
-This is my attempt at creating a way to play Countdown on the web. I've never made a game before so I thought this would be a fun project. I'm sure this is something that's been done many times before but I deliberately avoided looking at any existing ones before making this.
+This is my attempt at creating a way to play Countdown on the web. I've never made a game before so I thought this would be a fun project. I'm sure this is something that's been done many times before but I deliberately avoided looking at any existing ones before making this. I've been mainly coding in Python lately so I wanted to sharpen my JavaScript skills. Keep in mind this is a work in progress and will be continually updated.
 
 ## LETTERS ROUND
 
