@@ -39,7 +39,7 @@ form {
 
 }
 #difficulty_form small {
-	padding: .4em;
+	padding: .4em .4em .4em 1em;
 	display: block;
 }
 .valid_letters {
@@ -80,8 +80,8 @@ form {
 .face_up span {
 	visibility: visible;
 }
-.hideltrs span {
-	visibility: hidden;
+#con_table td {
+	text-align: center;
 }
 .scorebox {
 	display: none;
