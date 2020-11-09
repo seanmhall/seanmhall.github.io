@@ -52,8 +52,8 @@ function new_conundrum() {
 	random_gram = grams[Math.floor(Math.random() * grams.length)];
 	let scram = random_gram.split('');
 	let chtml = '';
-	for (let i=0;i<9;i++) {
-		chtml += '<td>'+scram[i]+'</td>';
+	for (var scramletter of scram) {
+		chtml += '<td>'+scramletter+'</td>';
 	}
 	$("#conundrum_game form").css("display", "block");
 	$("#c_answer").val("");
@@ -72,11 +72,14 @@ function cgt_tick() {
 	//Let player know when time has run out and stop the clock
 	if (CGT < 1) {
 		window.clearInterval(ntimer);
+		//Since the game is now over, don't bug the user if they try to navigate away
+		window.onbeforeunload = null;
 		let c_answer = $("#c_answer").val().toLowerCase();
 		let c_score = (chosenword == c_answer) ? 10 : 0;
 		total_points += c_score;
-		let amsg = "Time's up!\n";
-		amsg += (c_score > 0) ? "'"+c_answer+"' is correct! You scored 10 points.\n" : "You scored 0 points.\n";
+		let amsg = "";
+		let ucase_answer = c_answer.toUpperCase();
+		amsg += (c_score > 0) ? ucase_answer+" is correct! You scored 10 points.\n\n" : "You scored 0 points.\n\nPress OK to reveal the solution.";
 		amsg += "\nYour final score for this game is "+String(total_points)+".";
 		//alert("Time's up!\nYou scored "+String(c_score)+" points.");
 		alert(amsg);
@@ -87,7 +90,8 @@ function cgt_tick() {
 			tmphtml += `<td>${cwletter}</td>`;
 		}
 
-		$("#con_letters").html(tmphtml);
+		//$("#con_letters").html(tmphtml);
+		document.getElementById('con_table').firstChild.innerHTML += `<tr>${tmphtml}</tr>`;
 		$("#start_game_button").html("New Game");
 		$("#start_game_button").css("display", "block");
 		$("#timer").css("visibility", "hidden");
