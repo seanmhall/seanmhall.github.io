@@ -114,6 +114,10 @@ function start_new_game() {
     LETTERS_GAME_TIME = (easy_mode) ? EASY_GAME_TIME : HARD_GAME_TIME;
     NUMBERS_GAME_TIME = (easy_mode) ? EASY_GAME_TIME : HARD_GAME_TIME;
     CONUNDRUM_GAME_TIME = (easy_mode) ? EASY_GAME_TIME : HARD_GAME_TIME;
+    //Prevent accidentally ending the game, say with the back button
+    window.onbeforeunload = function() {
+        return true;
+    };
     //Hide the difficulty selector
     $("#difficulty_form").css("display", "none");
     $("#round_counter").html(String(round));
@@ -194,7 +198,3 @@ $(function() {
         nine_words_dict = new Set(nine_words_dict_arr);
     });
 });
-// Enable navigation prompt
-window.onbeforeunload = function() {
-    return true;
-};
