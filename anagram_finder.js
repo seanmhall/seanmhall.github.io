@@ -33,11 +33,11 @@ function find_anagrams(chars, fourfiveanagrams, SHOW_HYPHEN) {
     //Loop through the sub-words we've found we can make with the input word's letters
     //Some if statements are necessary to remove unwanted word combos related to compound words
     //For example, we don't want "lifeblood" being turned into "bloodlife"--way too easy!!
-    for (found_first of found_firstgroup) {
+    for (var found_first of found_firstgroup) {
         if (chars.slice(0, firstwordlength) === found_first || chars.slice(secondwordlength, 9) == found_first) {
             continue;
         }
-        for (found_second of found_secondgroup) {
+        for (var found_second of found_secondgroup) {
             if (chars.slice(firstwordlength, 9) === found_second) {
                 continue;
             }
@@ -45,21 +45,17 @@ function find_anagrams(chars, fourfiveanagrams, SHOW_HYPHEN) {
             if (sorted_chars != sort_string(combined) || combined === chars) {
                 continue;
             }     
-            else {
-                word_pairs.push(found_first+hyphen+found_second);
-            }
+            word_pairs.push(found_first+hyphen+found_second);
         }
     }
-    for (fsecond of found_secondgroup) {
+    for (var fsecond of found_secondgroup) {
         if (fsecond == chars.slice(firstwordlength, 9)) continue;
-        for (ffirst of found_firstgroup) {
+        for (var ffirst of found_firstgroup) {
             let combined = fsecond+ffirst;
             if (sorted_chars !== sort_string(combined) || combined === chars) {
                  continue;
             }
-            else {
-                word_pairs.push(fsecond+hyphen+ffirst);
-            }
+            word_pairs.push(fsecond+hyphen+ffirst);
         }
     }
     //Turn the array into a Set to remove duplicates, then turn it back into an array
